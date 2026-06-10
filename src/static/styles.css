@@ -8,20 +8,24 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: #243142;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f5f5f5;
+  background:
+    radial-gradient(circle at top left, rgba(26, 35, 126, 0.14), transparent 34%),
+    radial-gradient(circle at top right, rgba(0, 102, 204, 0.12), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #eef3f9 100%);
 }
 
 header {
   text-align: center;
-  padding: 20px 0;
+  padding: 28px 20px;
   margin-bottom: 30px;
-  background-color: #1a237e;
+  background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
   color: white;
-  border-radius: 5px;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(26, 35, 126, 0.22);
 }
 
 header h1 {
@@ -42,10 +46,11 @@ main {
 }
 
 section {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 14px 35px rgba(21, 41, 70, 0.12);
   width: 100%;
   max-width: 500px;
 }
@@ -59,19 +64,122 @@ section h3 {
 
 .activity-card {
   margin-bottom: 15px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  padding: 18px;
+  border: 1px solid rgba(26, 35, 126, 0.12);
+  border-radius: 16px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 8px 22px rgba(21, 41, 70, 0.08);
+}
+
+.activity-card__header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
 .activity-card h4 {
-  margin-bottom: 10px;
-  color: #0066cc;
+  color: #0f2c67;
+  font-size: 1.1rem;
 }
 
-.activity-card p {
-  margin-bottom: 8px;
+.activity-description {
+  margin-bottom: 14px;
+  color: #415062;
+}
+
+.activity-meta {
+  display: grid;
+  gap: 14px;
+}
+
+.activity-meta dt {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5a6a7f;
+  margin-bottom: 6px;
+}
+
+.activity-meta dd {
+  margin: 0;
+  color: #243142;
+}
+
+.participants-list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.participant-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0.55rem 0.7rem;
+  border-radius: 12px;
+  background: rgba(13, 71, 161, 0.06);
+  border: 1px solid rgba(13, 71, 161, 0.08);
+}
+
+.participant-email {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #243142;
+}
+
+.participants-list li::marker {
+  color: #0d47a1;
+}
+
+.participant-delete {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(198, 40, 40, 0.12);
+  color: #c62828;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.participant-delete:hover {
+  background: rgba(198, 40, 40, 0.18);
+  transform: scale(1.04);
+}
+
+.participant-delete:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+}
+
+.empty-state {
+  color: #6b7788;
+  font-style: italic;
+}
+
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(13, 71, 161, 0.1);
+  color: #0d47a1;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .form-group {
@@ -94,18 +202,20 @@ section h3 {
 }
 
 button {
-  background-color: #1a237e;
+  background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
   color: white;
   border: none;
   padding: 10px 15px;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 999px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 18px rgba(13, 71, 161, 0.22);
 }
 
 button:hover {
-  background-color: #3949ab;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(13, 71, 161, 0.28);
 }
 
 .message {
